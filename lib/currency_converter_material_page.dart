@@ -59,21 +59,27 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             //buttons:
             //1. raised
             //2. appears like a text
-            TextButton(
-              onPressed: () {
-                //debug, release, profile
-                //to run in release mode
-                //flutter run -release or -profile
-                if (kDebugMode) {
-                  debugPrint('clic');
-                }
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.blue[700]),
-                foregroundColor: const MaterialStatePropertyAll(Colors.white),
-                fixedSize: const MaterialStatePropertyAll(Size(150, 50)),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  //debug, release, profile
+                  //to run in release mode
+                  //flutter run -release or -profile
+                  if (kDebugMode) {
+                    debugPrint('clic');
+                  }
+                },
+                style: ButtonStyle(
+                  elevation: const MaterialStatePropertyAll(15),
+                  backgroundColor: MaterialStatePropertyAll(Colors.blue[700]),
+                  foregroundColor: const MaterialStatePropertyAll(Colors.white),
+                  minimumSize: const MaterialStatePropertyAll(
+                    Size(double.infinity, 50),
+                  ),
+                ),
+                child: const Text('Convert'),
               ),
-              child: const Text('Convert'),
             )
           ],
         ),
