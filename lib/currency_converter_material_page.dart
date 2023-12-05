@@ -37,7 +37,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             ),
             //padding
             //container
-            Padding(
+            Padding( 
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 style: const TextStyle(color: Colors.white),
@@ -68,10 +68,10 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   debugPrint('clic');
                 }
               },
-              style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.blue[700]),
-                foregroundColor: const MaterialStatePropertyAll(Colors.white),
-                fixedSize: const MaterialStatePropertyAll(Size(150, 50)),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.blue[700],
+                foregroundColor: Colors.white,
+                fixedSize: const Size(150, 50),
               ),
               child: const Text('Convert'),
             )
