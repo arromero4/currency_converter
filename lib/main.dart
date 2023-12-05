@@ -1,6 +1,7 @@
 import 'package:currency_converter/currency_converter_material_page.dart';
 import 'package:flutter/material.dart';
-
+//we need to practice and keep learning
+//we are going to work with this
 ///Widgets are the building blocks
 ///of the user interface
 ///they responsible for describing
