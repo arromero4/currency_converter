@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
   //la diferencia entre widgets
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CurrencyConverterMaterialPage(),
     );

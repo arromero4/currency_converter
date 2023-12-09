@@ -1,11 +1,22 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+//1. Create a variable that stores the converted currency value
+//2. Create a function that multiplies the value given by the textfield
+//3. Store the value in the variable that we created
+//4.  Display the variable
 
-class CurrencyConverterMaterialPage extends StatelessWidget {
-  const CurrencyConverterMaterialPage({super.key});
+class CurrencyConverterMaterialPage extends StatefulWidget {
+  State createState() => State();
+}
+
+class CurrencyConverterMaterialPagee extends StatelessWidget {
+  CurrencyConverterMaterialPage({super.key});
+
+  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    double result = 0;
+
     final border = OutlineInputBorder(
       //Color(0xFFAARRGGBB)
       borderSide: const BorderSide(
@@ -18,23 +29,29 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(74, 74, 74, 1),
+      appBar: AppBar(
+        title: const Text('Currency Converter'),
+        centerTitle: true,
+        backgroundColor: const Color.fromRGBO(74, 74, 74, 1),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('0',
-                style: TextStyle(
+            Text(result.toString(),
+                style: const TextStyle(
                     fontSize: 45,
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(255, 255, 255, 1))),
             Padding(
               padding: const EdgeInsets.all(10),
               child: TextField(
+                controller: textEditingController,
                 style: const TextStyle(
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
-                  hintText: 'Please enter the amount in USD: ',
+                  hintText: 'Please enter the amount in MXN: ',
                   hintStyle: const TextStyle(
                     color: Colors.black,
                   ),
@@ -57,23 +74,23 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
             //appear like a text
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextButton(
+              child: ElevatedButton(
                 onPressed: () {
                   //debug, release, profile
-                  if (kDebugMode) {
-                    print('button clic');
-                  }
+                  result = double.parse(textEditingController.text) * 81;
+                  build(context);
                 },
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.black),
-                  foregroundColor: MaterialStatePropertyAll(Colors.white),
-                  minimumSize: MaterialStatePropertyAll(
-                    Size(double.infinity, 50),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 child: const Text('Convert'),
               ),
-            )
+            ),
           ],
         ),
       ),
