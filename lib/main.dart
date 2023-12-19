@@ -1,5 +1,8 @@
-import 'package:currency_converter/currency_converter_material_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:currency_converter/currency_converter_cupertino_page.dart';
+import 'package:currency_converter/currency_converter_material_page.dart';
+
 //we need to practice and keep learning
 //we are going to work with this
 ///Widgets are the building blocks
@@ -11,7 +14,7 @@ void main() {
   //Compile time constant
   //const significa que no se tiene que
   //recrear cada vez que ejecutas
-  runApp(const MyApp());
+  runApp(const MyCupertinoApp());
 }
 
 ///Tipos de Widgets
@@ -34,9 +37,21 @@ class MyApp extends StatelessWidget {
   //la diferencia entre widgets
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CurrencyConverterMaterialPage(),
+    );
+  }
+}
+
+class MyCupertinoApp extends StatelessWidget {
+  const MyCupertinoApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const CupertinoApp(
+      debugShowCheckedModeBanner: false,
+      home: CurrencyConverterCupertinoPage(),
     );
   }
 }

@@ -5,18 +5,31 @@ import 'package:flutter/material.dart';
 //4.  Display the variable
 
 class CurrencyConverterMaterialPage extends StatefulWidget {
-  State createState() => State();
+  const CurrencyConverterMaterialPage({super.key});
+  @override
+  State<CurrencyConverterMaterialPage> createState() =>
+      _CurrencyConverterMaterialPageState();
 }
 
-class CurrencyConverterMaterialPagee extends StatelessWidget {
-  CurrencyConverterMaterialPage({super.key});
-
+class _CurrencyConverterMaterialPageState
+    extends State<CurrencyConverterMaterialPage> {
+  double result = 0;
   final TextEditingController textEditingController = TextEditingController();
+
+  void convert() {
+    //debug, release, profile
+    result = double.parse(textEditingController.text) * 17.22;
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    double result = 0;
-
     final border = OutlineInputBorder(
       //Color(0xFFAARRGGBB)
       borderSide: const BorderSide(
@@ -35,17 +48,18 @@ class CurrencyConverterMaterialPagee extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(74, 74, 74, 1),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(result.toString(),
-                style: const TextStyle(
-                    fontSize: 45,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(255, 255, 255, 1))),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                  '\$${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)} USD',
+                  style: const TextStyle(
+                      fontSize: 45,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(255, 255, 255, 1))),
+              TextField(
                 controller: textEditingController,
                 style: const TextStyle(
                   color: Colors.black,
@@ -68,18 +82,14 @@ class CurrencyConverterMaterialPagee extends StatelessWidget {
                   decimal: true,
                 ),
               ),
-            ),
-            //button
-            //raised
-            //appear like a text
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  //debug, release, profile
-                  result = double.parse(textEditingController.text) * 81;
-                  build(context);
-                },
+              //button
+              //raised
+              //appear like a text
+              const SizedBox(
+                height: 10,
+              ),
+              ElevatedButton(
+                onPressed: convert,
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
@@ -90,8 +100,8 @@ class CurrencyConverterMaterialPagee extends StatelessWidget {
                 ),
                 child: const Text('Convert'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
