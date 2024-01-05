@@ -43,7 +43,12 @@ class _CurrencyConverterMaterialPageState
     return Scaffold(
       backgroundColor: const Color.fromRGBO(74, 74, 74, 1),
       appBar: AppBar(
-        title: const Text('Currency Converter'),
+        title: const Text(
+          'Currency Converter',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(74, 74, 74, 1),
       ),

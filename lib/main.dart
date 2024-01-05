@@ -14,7 +14,7 @@ void main() {
   //Compile time constant
   //const significa que no se tiene que
   //recrear cada vez que ejecutas
-  runApp(const MyCupertinoApp());
+  runApp(const MyApp());
 }
 
 ///Tipos de Widgets
